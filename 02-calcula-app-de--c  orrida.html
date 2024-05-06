@@ -4,6 +4,8 @@
 
 <script>
 
+    
+
     function formataMoeda(algumValor) {
         return algumValor.toFixed(2).replace('.' , ',');
     }
@@ -11,10 +13,17 @@
     function calculaCorrida() {
          // Organizar as entradas e fazer a regra de negócio
 
+        var isCampoDistanciaVazio = campoDistanciaEmKm.value == '';
+
+        if (isCampoDistanciaVazio == true) {
+        alert('NÃO temos o valor da distância');
+        return ;
+        }
+        
         var tarifaDinamica = 1.4;
-        var distanciaEMKm = campoDistanciaEmKm.value * tarifaDinamica;
+        var distanciaEmKm = campoDistanciaEmKm.value * tarifaDinamica;
         var tempoEmMin = campoTempoEmMin.value * 0.26;
-        var valorDaCorrida = distanciaEMKm + tempoEmMin;
+        var valorDaCorrida = distanciaEmKm + tempoEmMin;
 
         alert("O valor da corrida é: " + formataMoeda(valorDaCorrida));    //executa na hora
     }
